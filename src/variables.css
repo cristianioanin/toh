@@ -1,4 +1,10 @@
 :root {
     --column-gap-md: 20px;
     --column-gap-sm: 10px;
+    --color-low: #ff3f34;
+    --color-medium: #ffd32a;
+    --color-high: #05c46b;
+    --color-ultra: #3c40c6;
+    --color-text-dark: #1e272e;
+    --color-text-light: #ffffff
 }

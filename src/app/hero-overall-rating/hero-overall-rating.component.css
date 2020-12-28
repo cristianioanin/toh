@@ -1,0 +1,39 @@
+:host {
+    --height: 30px;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    height: var(--height);
+}
+
+.rating-pill {
+    width: 30px;
+    height: var(--height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: var(--column-gap-sm);
+}
+
+.rating--low {
+    background-color: var(--color-low);
+    color: var(--color-text-light);
+}
+
+.rating--medium {
+    background-color: var(--color-medium);
+    color: var(--color-text-dark);
+}
+
+.rating--high {
+    background-color: var(--color-high);
+    color: var(--color-text-dark);
+}
+
+.rating--ultra {
+    background-color: var(--color-ultra);
+    color: var(--color-text-light);
+}
