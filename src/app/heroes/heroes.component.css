@@ -1,4 +1,10 @@
 /* HeroesComponent's private CSS styles */
+:host {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: var(--column-gap-md);
+}
+
 .heroes {
   margin: 0 0 2em 0;
   list-style-type: none;
