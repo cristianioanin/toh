@@ -8,9 +8,9 @@
         </label>
     </div>
     <h3>Power Stats</h3>
-    <ul>
+    <ul class="power-stats-list">
         <li *ngFor="let stat of stats | keyvalue">
-            {{ stat.key }}: {{ stat.value }}
+            <span>{{ stat.key }}:</span><span>{{ stat.value }}</span>
         </li>
     </ul>
 

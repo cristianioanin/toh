@@ -1,0 +1,8 @@
+.power-stats-list {
+    width: 16ch;
+}
+
+.power-stats-list li {
+    display: flex;
+    justify-content: space-between;
+}
