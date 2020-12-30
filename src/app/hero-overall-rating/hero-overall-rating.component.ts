@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Hero } from '../hero.interface';
+import { PowerStats } from '../hero.interface';
 
 enum RatingStyleValue {
     Low = 'rating--low',
@@ -18,7 +18,7 @@ export class HeroOverallRatingComponent implements OnInit {
     ratingStyle: string;
 
     @Input()
-    set hero(val: Hero) {
+    set powerStats(val: PowerStats) {
         this.rating = this.calcOverallRating(val);
         this.ratingStyle = this.evalOverallRatingStyle(this.rating);
     }
@@ -51,8 +51,8 @@ export class HeroOverallRatingComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    private calcOverallRating(hero: Hero): number {
-        return Object.values(hero.powerStats).reduce((acc, value) => acc + value, 0);
+    private calcOverallRating(powerStats: PowerStats): number {
+        return Object.values(powerStats).reduce((acc, value) => acc + value, 0);
     }
 
     private evalOverallRatingStyle(rating: number): string {

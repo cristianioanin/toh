@@ -1,8 +1,13 @@
 .power-stats-list {
-    width: 16ch;
+    width: 20ch;
 }
 
 .power-stats-list li {
     display: flex;
     justify-content: space-between;
+}
+
+.power-stats-list input {
+    width: 30px;
+    text-align: right;
 }

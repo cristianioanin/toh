@@ -8,11 +8,15 @@
         </label>
     </div>
     <h3>Power Stats</h3>
-    <ul class="power-stats-list">
-        <li *ngFor="let stat of stats | keyvalue">
-            <span>{{ stat.key }}:</span><span>{{ stat.value }}</span>
-        </li>
-    </ul>
+    <form [formGroup]="powerStatsForm">
+        <ul class="power-stats-list">
+            <li *ngFor="let stat of stats | keyvalue">
+                <span>{{ stat.key }}:</span>
+                <input [formControlName]="stat.key" class="power-stat-input" type="number" min="0" max="10"
+                    [value]="stat.value">
+            </li>
+        </ul>
+    </form>
 
-    <app-hero-overall-rating [hero]="hero"></app-hero-overall-rating>
+    <app-hero-overall-rating [powerStats]="hero.powerStats"></app-hero-overall-rating>
 </div>

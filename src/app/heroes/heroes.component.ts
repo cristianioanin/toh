@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Hero } from '../hero.interface';
+import { Hero, PowerStats } from '../hero.interface';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
 
@@ -21,15 +21,19 @@ export class HeroesComponent implements OnInit, OnDestroy {
     getHeroes(): void {
         this.heroService.getHeroes().subscribe(heroes => {
             setTimeout(() => {
-              this.heroes = heroes;
-              this.messageService.add('HeroService: END Fetch Heroes');
-            }, 3000);
+                this.heroes = heroes;
+                this.messageService.add('HeroService: END Fetch Heroes');
+            }, 1000);
         });
     }
 
     onSelect(hero: Hero) {
         this.selectedHero = hero;
         this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+    }
+
+    onUpdatePowerStats(stats: PowerStats): void {
+        this.selectedHero.powerStats = stats;
     }
 
     ngOnDestroy() {
