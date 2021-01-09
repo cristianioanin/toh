@@ -1,0 +1,11 @@
+button {
+    font-family: "PT Mono", monospace;
+    padding: .5em 1em;
+    margin: 0 1em 1em 0;
+    font-weight: 600;
+    color: var(--color-text-light);
+    background-color: #369;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

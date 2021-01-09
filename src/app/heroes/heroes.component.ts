@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { merge } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Hero, PowerStats } from '../hero.interface';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
+import { ActiveSort, SortService } from '../sort.service';
 
 @Component({
     selector: 'app-heroes',
@@ -12,7 +15,13 @@ export class HeroesComponent implements OnInit, OnDestroy {
     heroes: Hero[];
     selectedHero: Hero;
 
-    constructor(private heroService: HeroService, private messageService: MessageService) { }
+    heroes$ = merge(this.heroService.heroes$, this.sortService.sortedHeroes$).pipe(
+        tap(heroes => this.heroes = heroes as Hero[])
+    );
+
+    constructor(private heroService: HeroService, private messageService: MessageService, private sortService: SortService) {
+        this.heroes$.subscribe();
+    }
 
     ngOnInit() {
         this.getHeroes();
@@ -34,6 +43,11 @@ export class HeroesComponent implements OnInit, OnDestroy {
 
     onUpdatePowerStats(stats: PowerStats): void {
         this.selectedHero.powerStats = stats;
+        if (this.sortService.activeSort === ActiveSort.Id) {
+            this.heroService.updateHeroPowerStats(this.selectedHero);
+        } else {
+
+        }
     }
 
     ngOnDestroy() {
